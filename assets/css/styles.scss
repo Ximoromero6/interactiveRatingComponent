@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* Colors */
+
+$Orange: hsl(25,
+97%,
+53%);
+$White: hsl(0,
+0%,
+100%);
+$Light_Grey: hsl(217,
+12%,
+63%);
+$Medium_Grey: hsl(216,
+12%,
+54%);
+$Dark_Blue: hsl(213,
+19%,
+18%);
+$Very_Dark_Blue: hsl(216,
+12%,
+8%);
+
+/* End colors */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Overpass", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $Very_Dark_Blue;
+}
+
+main {
+    max-width: 420px;
+    max-height: 420px;
+    border-radius: 22px;
+    background-color: $Dark_Blue;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    .containerImage {
+        width: 45px;
+        height: 45px;
+        background-color: lighten($Dark_Blue, 6);
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+    .title {
+        font-size: 28px;
+        color: $White;
+        margin-bottom: 15px;
+        font-weight: 500;
+    }
+    .subtitle {
+        font-size: 16px;
+        color: $Light_Grey;
+        margin-bottom: 30px;
+        line-height: 24px;
+    }
+    .containerRating {
+        margin-bottom: 30px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .ratingButton {
+            color: $Light_Grey;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            font-weight: 600;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: inherit;
+            background-color: lighten($Dark_Blue, 6);
+            cursor: pointer;
+            transition: all .2s;
+            &:hover {
+                background-color: $Medium_Grey;
+                color: $White;
+            }
+            &.selected {
+                background-color: $Orange;
+                color: $White;
+            }
+        }
+    }
+    #submitButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        font-family: inherit;
+        text-transform: uppercase;
+        background-color: $Orange;
+        color: $White;
+        transition: all .2s;
+        padding: 14px 0;
+        border-radius: 30px;
+        width: 100%;
+        font-weight: 600;
+        letter-spacing: 2px;
+        cursor: pointer;
+        &:hover {
+            background-color: $White;
+            color: $Orange;
+        }
+    }
+    &.submited {
+        align-items: center;
+        .containerImageSubmited {
+            margin: 30px auto;
+        }
+        .selectedRating {
+            background-color: lighten($Dark_Blue, 6);
+            padding: 6px 20px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: $Orange;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+        .subtitle {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    }
+    /* Responsive */
+    @media(max-width: 768px) {
+        padding: 20px;
+        max-height: auto;
+    }
+    @media(max-width: 320px) {
+        .containerRating {
+            .ratingButton {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+}
