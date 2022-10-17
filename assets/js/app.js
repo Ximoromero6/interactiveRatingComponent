@@ -17,8 +17,9 @@
 
 
     submitButton.addEventListener("click", () => {
-        mainContainer.classList.add("submited");
-        mainContainer.innerHTML = `
+        if (ratingNumber != null) {
+            mainContainer.classList.add("submited");
+            mainContainer.innerHTML = `
             <div class="containerImageSubmited">
                 <img src="assets/images/illustration-thank-you.svg" alt="">
             </div>
@@ -26,5 +27,7 @@
             <h2 class="title">Thank you!</h2>
             <p class="subtitle">We appreciate you taking the time to give a rating. If you ever need more support, don’t hesitate to get in touch!</p>
         `;
+        }
     });
+
 })();
